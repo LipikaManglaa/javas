@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css" />
+ 
+</head>
+<body>
+    <div class="main">
+      <header>
+        <div class="header-inner">
+        <div class="logo">
+        <h1>First Assignment</h1>
+        </div>
+        <nav>
+            <ul>
+                
+                <li><a href="index.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+               
+            </ul>
+        </nav>
+        </div>
+    </header>
+        <form id="register">
+            <div id="message"></div>
+            <h3 class="mb-3 text-center">Register Here</h3>
+            <div class="mb-3">
+                <label for="exampleInputName" class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" id="exampleInputName" aria-describedby="emailHelp">
+               
+              </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+             
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputUserName" class="form-label">User Name</label>
+                <input type="text" class="form-control" name="userName" id="exampleInputUserName" aria-describedby="emailHelp">
+               
+              </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+       
+          </form>
+          <div class=" mt-5 regi"> <a href="login.html">If you are already register,Login Here</a></div>  
+    </div>
+
+   
+    
+</body>
+<script>
+    let formData=document.querySelector('#register');
+    let accountName,password,UserName, Email , AccountNumber, AccountMoney;
+    let finalData=[];
+
+    let oldData,userData;
+   formData.addEventListener('submit',(e)=>{
+    e.preventDefault()
+    accountName=e.target.name.value;
+    password=e.target.password.value;
+    UserName=e.target.userName.value;
+    Email=e.target.email.value;
+
+   let getDate=new Date();
+   AccountNumber=Math.floor(getDate.getTime()/10000)
+
+   AccountMoney=0;
+   
+   
+ 
+    oldData=JSON.parse(localStorage.getItem("Users")) ?? [];
+ 
+  
+   userData={
+    accountName,
+    password,
+    UserName,
+    Email,
+    AccountMoney,
+    AccountNumber
+   }
+//    console.log(checkUserDetails(Email))
+var checkStatusEmail=checkUserDetails(Email,UserName)
+
+if(checkStatusEmail==1){
+    alert("email and username already exist")
+}else{
+  finalData=[...oldData,userData]
+   localStorage.setItem("Users",JSON.stringify(finalData));
+  
+  
+   e.target.reset()
+message.innerHTML="Data Saved.."
+setTimeout(()=>{
+    message.innerHTML="";
+},1000)
+}
+
+   })
+function checkUserDetails(email,username){
+    var i=0;
+    for(var p of finalData){
+  
+      if(p.Email==email){
+      
+        i=1;
+        break;
+      }else if(p.UserName==username){
+         i=1;
+         break;
+
+      }
+    }
+    return i;
+}
+
+
+  
+
+</script>
+</html>

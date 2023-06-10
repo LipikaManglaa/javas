@@ -1,0 +1,85 @@
+.main{
+    width: 1320px;
+    margin: auto;
+}
+form{
+    width: 600px;
+    margin: 50px auto 0px auto;
+}
+.regi{
+  color: #fff;
+ font-size: 20px;
+ padding: 10px;
+ background-color: #ccc;
+ width: 600px;
+ margin: auto;
+}
+.regi a{
+  text-decoration: none;
+  color: black;
+}
+.main{
+  width: 100%;
+background-color: #fff;
+box-shadow: 0px 0px 10px 2px #ccc;
+position: sticky;
+left: 0;
+top: 0; 
+}
+header{
+width: 100%;
+background-color: #fff;
+box-shadow: 0px 0px 10px 2px #ccc;
+position: sticky;
+left: 0;
+top: 0;
+}
+.header-inner{
+max-width: 1320px;
+margin: auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.header-inner .logo{
+flex-basis: 25%;
+cursor: pointer;
+}
+.logo>h1{
+color: var(--primary-color);
+font-size: 20px;
+}
+.header-inner nav{
+flex-basis: 65%;
+}
+.header-inner>nav>ul{
+display: flex;
+justify-content:space-between;
+align-items: center;
+}
+.header-inner>nav>ul>li{
+padding: 20px 15px;
+text-transform: uppercase;
+color: #282828;
+font-size: 15px;
+list-style: none;
+font-weight: bold;
+}
+.header-inner>nav>ul>li>a{
+color: #282828;
+}
+.header-inner>nav>ul>li:hover{
+background-color: orange;
+}
+.header-inner>nav>ul>li:hover a{
+color: #fff;
+}
+.header-inner>nav>ul>li>a:focus-visible{
+border: 0px !important;
+outline: none !important;
+outline-offset: 0px !important;
+}
+.header-inner>nav>ul>li>a>i{
+margin-right: 5px;
+color: orange;
+}
